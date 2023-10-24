@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
+//
 public class Conexionn {
     private static final String url="jdbc:mariadb://localhost/provemax";
     private static final String usuario="root";
