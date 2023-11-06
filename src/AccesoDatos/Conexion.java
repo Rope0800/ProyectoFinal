@@ -9,15 +9,15 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 //
-public class Conexionn {
+public class Conexion {
     private static final String url="jdbc:mariadb://localhost/provemax";
     private static final String usuario="root";
     private static final String password="";
 
    
-    private static Conexionn conexion=null;
+    private static Conexion conexion=null;
     
-     private Conexionn() {
+     private Conexion() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             
@@ -32,7 +32,7 @@ public class Conexionn {
         Connection con=null;
       if(conexion == null){
          
-           conexion= new Conexionn();
+           conexion= new Conexion();
         }
         try {
             // Setup the connection with the DB

@@ -2,24 +2,24 @@
 package Entidades;
 
 
-public class detallecompra {
+public class DetalleCompra {
     private int idDetalle;
     private int cantidad;
     private double precioCostos;
-    private compras compras;
+    private Compras compras;
     private Producto producto;
 
-    public detallecompra() {
+    public DetalleCompra() {
     }
 
-    public detallecompra(int cantidad, double precioCostos, compras compras, Producto producto) {
+    public DetalleCompra(int cantidad, double precioCostos, Compras compras, Producto producto) {
         this.cantidad = cantidad;
         this.precioCostos = precioCostos;
         this.compras = compras;
         this.producto = producto;
     }
 
-    public detallecompra(int idDetalle, int cantidad, double precioCostos, compras compras, Producto producto) {
+    public DetalleCompra(int idDetalle, int cantidad, double precioCostos, Compras compras, Producto producto) {
         this.idDetalle = idDetalle;
         this.cantidad = cantidad;
         this.precioCostos = precioCostos;
@@ -51,11 +51,11 @@ public class detallecompra {
         this.precioCostos = precioCostos;
     }
 
-    public compras getCompras() {
+    public Compras getCompras() {
         return compras;
     }
 
-    public void setCompras(compras compras) {
+    public void setCompras(Compras compras) {
         this.compras = compras;
     }
 

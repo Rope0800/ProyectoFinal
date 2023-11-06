@@ -2,23 +2,23 @@
 package Entidades;
 
 
-public class proveedor {
+public class Proveedor {
     
     private int idProveedor;
     private String razonSocial;
     private String domicilio;
     private int telefono;
 
-    public proveedor() {
+    public Proveedor() {
     }
 
-    public proveedor(String razonSocial, String domicilio, int telefono) {
+    public Proveedor(String razonSocial, String domicilio, int telefono) {
         this.razonSocial = razonSocial;
         this.domicilio = domicilio;
         this.telefono = telefono;
     }
 
-    public proveedor(int idProveedor, String razonSocial, String domicilio, int telefono) {
+    public Proveedor(int idProveedor, String razonSocial, String domicilio, int telefono) {
         this.idProveedor = idProveedor;
         this.razonSocial = razonSocial;
         this.domicilio = domicilio;
