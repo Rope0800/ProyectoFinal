@@ -20,8 +20,8 @@ public class ProveedorData {
  
 
     public void agregarProveedor(Proveedor proveedor){  
-     String sql = "INSERT INTO proveedor( razonSocial, domicilio, telefono, idProducto)"
-             + "VALUE(?,?,?,?)";
+     String sql = "INSERT INTO proveedor(razonSocial, domicilio, telefono)"
+             + "VALUE(?,?,?)";
      
      try { 
         PreparedStatement ps  = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -29,7 +29,6 @@ public class ProveedorData {
         ps.setString(1, proveedor.getRazonSocial());
         ps.setString(2, proveedor.getDomicilio());
         ps.setInt(3, proveedor.getTelefono());
-        ps.setInt(4, proveedor.getProducto().getIdProducto());
         ps.executeUpdate();
            
         ResultSet rs =ps.getGeneratedKeys();
@@ -63,7 +62,7 @@ public class ProveedorData {
  }
     
     public void actualizarProveedor(Proveedor proveedor) {
-     String sql="UPDATE proveedor SET razonSocial = ?, domicilio = ?, telefono = ?, idProducto = ? "
+     String sql="UPDATE proveedor SET razonSocial = ?, domicilio = ?, telefono = ? "
              + "WHERE idProveedor = ?";
      
         try {
@@ -72,8 +71,7 @@ public class ProveedorData {
             ps.setString(1, proveedor.getRazonSocial());
             ps.setString(2, proveedor.getDomicilio());
             ps.setInt(3, proveedor.getTelefono());
-            ps.setInt(4, proveedor.getProducto().getIdProducto());
-            ps.setInt(5, proveedor.getIdProveedor());
+            ps.setInt(4, proveedor.getIdProveedor());
             int exito = ps.executeUpdate();
             if(exito==1){
                 JOptionPane.showMessageDialog(null, "Proveedor Actualizado");
@@ -84,7 +82,7 @@ public class ProveedorData {
         }
     }
  public Proveedor buscarProveedor(int id){
-     String sql="SELECT razonSocial, domicilio, telefono, idProducto FROM proveedor WHERE idProveedor = ? ";
+     String sql="SELECT razonSocial, domicilio, telefono FROM proveedor WHERE idProveedor = ? ";
      Proveedor proveedor=null;
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -98,9 +96,6 @@ public class ProveedorData {
                 proveedor.setDomicilio(rs.getString("domicilio"));
                 proveedor.setTelefono(rs.getInt("telefono"));
                 
-                Producto prod= new Producto();
-                prod.setIdProducto(rs.getInt("idProducto"));
-                proveedor.setProducto(prod);
                 
             }else{
                 JOptionPane.showMessageDialog(null, "No existe el proveedor");
@@ -125,11 +120,7 @@ public List<Proveedor> listarProveedores(){
                proveedor.setRazonSocial(rs.getString("razonSocial"));
                proveedor.setDomicilio(rs.getString("domicilio"));
                proveedor.setTelefono(rs.getInt("telefono"));
-              
-               Producto prod= new Producto();
-               prod.setIdProducto(rs.getInt("idProducto"));
-               proveedor.setProducto(prod);
-                        
+                                      
                proveedores.add(proveedor);
             
             }

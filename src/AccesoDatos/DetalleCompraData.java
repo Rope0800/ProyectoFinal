@@ -22,7 +22,7 @@ public class DetalleCompraData {
  public DetalleCompraData(){   
   con=Conexion.getConexion();
  } 
-public void detalleDeCompra(DetalleCompra detallecompra){  
+public void registrardetalleDeCompra(DetalleCompra detallecompra){  
      String sql = "INSERT INTO detallecompra(idDetalle, cantidad, precioCosto, idCompra, idProducto)"
              + "VALUE(?,?,?,?,?)";
      
@@ -49,6 +49,45 @@ public void detalleDeCompra(DetalleCompra detallecompra){
          JOptionPane.showMessageDialog(null, "Error Al Registrar DETALLES DE COMPRA");
      }
    }
-     
+  public List<DetalleCompra> obtenerProductoPorCodigo(int idCompra){
+        
+        ArrayList<DetalleCompra> detalles=new ArrayList<>();
+        
+        String sql="SELECT producto.idProducto, producto.nombreProducto, cantidad, precioCosto FROM detallecompra JOIN producto ON (detallecompra.idProducto = producto.idProducto) WHERE idCompra = 1;";
+        
+        try{
+        PreparedStatement ps=con.prepareStatement(sql);
+         ps.setInt(1, idCompra);
+        ResultSet rs=ps.executeQuery();
+        
+        while(rs.next()){
+            
+            DetalleCompra dcompra = new DetalleCompra();
+            
+            dcompra.setCantidad(rs.getInt("cantidad"));
+            dcompra.setPrecioCostos(rs.getInt("precioCosto"));
+            
+                        
+            Producto prod= new Producto();
+            prod.setIdProducto(rs.getInt("idProducto"));
+            prod.setNombreProducto(rs.getString("nombreProducto"));
+            dcompra.setProducto(prod);
+            
+            Compras com=new Compras();
+            com.setIdCompra(rs.getInt("idCompra"));
+            dcompra.setCompras(com);
+                  
+            
+            detalles.add(dcompra);
+            
+        }
+        ps.close();
+        
+        
+        }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA DETALLECOMPRA");
+                }
+        return detalles;   
+}
 }
 

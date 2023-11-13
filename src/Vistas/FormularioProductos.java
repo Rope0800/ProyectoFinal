@@ -5,11 +5,19 @@
  */
 package Vistas;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import javax.swing.JOptionPane;
+import Entidades.Producto;
+import AccesoDatos.ProductoData;
+
 /**
  *
  * @author elihe
  */
 public class FormularioProductos extends javax.swing.JInternalFrame {
+    private ProductoData produData=new ProductoData();
+    private Producto productoActual=null;
 
     /**
      * Creates new form FormularioProductos
@@ -43,6 +51,8 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
         JTstock = new javax.swing.JTextField();
         JRBestado = new javax.swing.JRadioButton();
         JLestado = new javax.swing.JLabel();
+        JTcodigo = new javax.swing.JTextField();
+        JLcodigo = new javax.swing.JLabel();
 
         JLproducto.setText("PRODUCTO");
 
@@ -55,6 +65,11 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
         JLnombre.setText("Nombre:");
 
         JBbuscar.setText("Buscar");
+        JBbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBbuscarActionPerformed(evt);
+            }
+        });
 
         JLdescripcion.setText("Descripción:");
 
@@ -63,6 +78,11 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
         JLstock.setText("Stock:");
 
         JBnuevo.setText("Nuevo");
+        JBnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBnuevoActionPerformed(evt);
+            }
+        });
 
         JBeliminar.setText("Eliminar");
         JBeliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +92,11 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
         });
 
         JBguardar.setText("Guardar");
+        JBguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBguardarActionPerformed(evt);
+            }
+        });
 
         JBsalir.setText("Salir");
         JBsalir.addActionListener(new java.awt.event.ActionListener() {
@@ -82,75 +107,95 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
 
         JLestado.setText("Estado:");
 
+        JTcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTcodigoActionPerformed(evt);
+            }
+        });
+
+        JLcodigo.setText("Código:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLdescripcion)
-                    .addComponent(JLnombre)
-                    .addComponent(JLprecioactual)
-                    .addComponent(JLstock)
-                    .addComponent(JLestado))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(JTdescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                            .addComponent(JTnombre)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JLdescripcion)
+                            .addComponent(JLprecioactual)
+                            .addComponent(JLnombre)
+                            .addComponent(JLstock)
+                            .addComponent(JLestado))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JTnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JTstock, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JTprecioactual, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JRBestado))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(JBbuscar)
-                .addGap(35, 35, 35))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JBnuevo)
-                .addGap(18, 18, 18)
-                .addComponent(JBeliminar)
-                .addGap(18, 18, 18)
-                .addComponent(JBguardar)
-                .addGap(18, 18, 18)
-                .addComponent(JBsalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(JRBestado)
+                            .addComponent(JTdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(JLcodigo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JBbuscar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(JBnuevo)
+                                .addGap(18, 18, 18)
+                                .addComponent(JBeliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(JBguardar)
+                                .addGap(18, 18, 18)
+                                .addComponent(JBsalir)))))
+                .addContainerGap(68, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(JLproducto)
-                .addGap(152, 152, 152))
+                .addGap(172, 172, 172))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JLproducto)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLnombre)
-                    .addComponent(JBbuscar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLdescripcion))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTprecioactual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLprecioactual))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JLstock)
-                    .addComponent(JTstock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLestado)
-                    .addComponent(JRBestado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(JTnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JLnombre)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(JBbuscar)
+                                    .addComponent(JTcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JLcodigo))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JLdescripcion)
+                            .addComponent(JTdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JTprecioactual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLprecioactual))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JTstock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JLstock))
+                        .addGap(42, 42, 42)
+                        .addComponent(JLestado))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JRBestado)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBnuevo)
                     .addComponent(JBeliminar)
@@ -168,12 +213,98 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
 
     private void JBeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBeliminarActionPerformed
         // TODO add your handling code here:
+        if(productoActual!=null){
+            produData.eliminarProducto(productoActual.getIdProducto());
+            productoActual=null;
+            limpiarCampos();
+            
+        
+        }else{
+            JOptionPane.showMessageDialog(this,"No hay producto seleccionado");
+        }
+     
+         
     }//GEN-LAST:event_JBeliminarActionPerformed
 
     private void JBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsalirActionPerformed
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_JBsalirActionPerformed
 
+    private void JBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbuscarActionPerformed
+        // TODO add your handling code here:
+       try{
+            Integer codigo=Integer.parseInt(JTcodigo.getText());
+//            
+              productoActual=produData.buscarProducto(codigo);
+            if(productoActual!=null){
+                JTnombre.setText(productoActual.getNombreProducto());
+                JTdescripcion.setText(productoActual.getDescripcion());
+                JTprecioactual.setText(Integer.toString(productoActual.getPrecioActual()));
+                JTstock.setText(Integer.toString(productoActual.getStock()));
+                JRBestado.setSelected(productoActual.isEstado());
+                
+                
+            }
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this,"Debe ingresar un número válido");
+        }
+        
+    }//GEN-LAST:event_JBbuscarActionPerformed
+
+    private void JTcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTcodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTcodigoActionPerformed
+
+    private void JBnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBnuevoActionPerformed
+        // TODO add your handling code here:
+        limpiarCampos();
+        productoActual=null;
+        
+    }//GEN-LAST:event_JBnuevoActionPerformed
+
+    private void JBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBguardarActionPerformed
+        // TODO add your handling code here:
+       try{
+            Integer codigo=Integer.parseInt(JTcodigo.getText());
+            String nombre=JTnombre.getText();
+            String descripcion=JTdescripcion.getText();
+            Integer precio=Integer.parseInt(JTprecioactual.getText());
+            Integer stock=Integer.parseInt(JTstock.getText());
+            Boolean estado=JRBestado.isSelected();
+            if(nombre.isEmpty()){
+             JOptionPane.showMessageDialog(this, "No puede haber campos vacíos");
+             return;
+            }
+            
+            if(productoActual==null){
+                productoActual=new Producto(codigo,nombre,descripcion,precio,stock,estado);
+                produData.resgistrarProducto(productoActual);
+            }else{
+                productoActual.setIdProducto(codigo);
+                productoActual.setNombreProducto(nombre);
+                productoActual.setDescripcion(descripcion);
+                productoActual.setPrecioActual(precio);
+                productoActual.setStock(stock);
+                productoActual.setEstado(estado);
+                                
+                produData.modificarProducto(productoActual);
+                
+            }
+            
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this,"Debe ingresar un Código válido");
+        }
+        
+    }//GEN-LAST:event_JBguardarActionPerformed
+private void limpiarCampos(){
+        JTcodigo.setText("");
+        JTnombre.setText("");
+        JTdescripcion.setText("");
+        JTprecioactual.setText("");
+        JTstock.setText("");
+        JRBestado.setSelected(true);
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBbuscar;
@@ -181,6 +312,7 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton JBguardar;
     private javax.swing.JButton JBnuevo;
     private javax.swing.JButton JBsalir;
+    private javax.swing.JLabel JLcodigo;
     private javax.swing.JLabel JLdescripcion;
     private javax.swing.JLabel JLestado;
     private javax.swing.JLabel JLnombre;
@@ -188,6 +320,7 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel JLproducto;
     private javax.swing.JLabel JLstock;
     private javax.swing.JRadioButton JRBestado;
+    private javax.swing.JTextField JTcodigo;
     private javax.swing.JTextField JTdescripcion;
     private javax.swing.JTextField JTnombre;
     private javax.swing.JTextField JTprecioactual;

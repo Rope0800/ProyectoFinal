@@ -19,44 +19,45 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="JLrazonsocial" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="JLdomicilio" min="-2" max="-2" attributes="0"/>
-                          <Component id="JLtelefono" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JBnuevo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="JBeliminar" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="JLrazonsocial" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="JLdomicilio" min="-2" max="-2" attributes="0"/>
+                              <Component id="JLtelefono" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="JLcodigo" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="JTdomicilio" min="-2" pref="120" max="-2" attributes="0"/>
                   <Component id="JLproveedor" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTtelefono" min="-2" pref="120" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="JBguardar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTrazonsocial" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="JBguardar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="JBbuscar" min="-2" max="-2" attributes="0"/>
                           <Component id="JBsalir" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="JTtelefono" alignment="0" max="32767" attributes="0"/>
+                      <Component id="JTdomicilio" alignment="0" max="32767" attributes="0"/>
+                      <Component id="JTcodigo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="JTrazonsocial" alignment="0" pref="120" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,27 +66,33 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="JTrazonsocial" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JBbuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="JLrazonsocial" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="JBbuscar" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="JLproveedor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JTcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JTrazonsocial" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLrazonsocial" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JTdomicilio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLdomicilio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTtelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLtelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTtelefono" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="96" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JBnuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBeliminar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -127,21 +134,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBeliminarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBbuscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBbuscarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBguardar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBguardarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBsalir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBsalirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="JLrazonsocial">
       <Properties>
@@ -157,6 +176,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefono:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="JLcodigo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="JTcodigo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTcodigoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -2,7 +2,9 @@
 package proyectofinal;
 
 import AccesoDatos.ProductoData;
+import AccesoDatos.ProveedorData;
 import Entidades.Producto;
+import Entidades.Proveedor;
 import java.sql.*;
 
 public class ProyectoFinal {
@@ -19,6 +21,10 @@ public class ProyectoFinal {
 //        prod.resgistrarProducto(tv);
         //*MODIFICAR PRODUCTO*
         //*ELIMINAR PRODUCTO*
+        //*AGREGAR PROVEEDOR*
+//        Proveedor prov=new Proveedor(10,"Losada","Pringles 88",265679797);
+//        ProveedorData prove=new ProveedorData();
+//        prove.agregarProveedor(prov);
     }
     
 }

@@ -108,6 +108,7 @@ public class ProductoData {
         }
         return producto;
  }
+ 
   public List<Producto> listarProductos(){
      String sql="SELECT * FROM producto WHERE estado = 1";
      ArrayList<Producto> productos=new ArrayList<>();
