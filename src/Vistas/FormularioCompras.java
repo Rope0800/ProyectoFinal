@@ -293,6 +293,14 @@ public class FormularioCompras extends javax.swing.JInternalFrame {
     private void JBnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBnuevoActionPerformed
         // TODO add your handling code here:
         limpiarCampos();
+        JBguardar.setEnabled(false);
+        JLdetalle.setEnabled(false);
+        JLcantidad.setEnabled(false);
+        JTcantidad.setEditable(false);
+        JLprecio.setEnabled(false);
+        JTprecio.setEditable(false);
+        JCBproductos.setEnabled(false);
+        JLproducto.setEnabled(false);
         
     }//GEN-LAST:event_JBnuevoActionPerformed
 

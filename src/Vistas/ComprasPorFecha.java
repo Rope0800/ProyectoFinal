@@ -7,6 +7,7 @@ import Entidades.Compras;
 import Entidades.Proveedor;
 import Entidades.Producto;
 import Entidades.DetalleCompra;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -89,6 +90,11 @@ public class ComprasPorFecha extends javax.swing.JInternalFrame {
         });
 
         JRBcodigo.setText("Por código de compra:");
+        JRBcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBcodigoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Elija una opción:");
 
@@ -112,11 +118,17 @@ public class ComprasPorFecha extends javax.swing.JInternalFrame {
             }
         });
 
+        JDCporfecha.setDateFormatString("yyyy-MM-dd");
+
+        JDCfecha1.setDateFormatString("yyyy-MM-dd");
+
+        JDCfecha2.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
@@ -136,10 +148,11 @@ public class ComprasPorFecha extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JDCporfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JDCfecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JDCfecha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(76, 76, 76)
+                                        .addComponent(JDCfecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(JTcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(198, 198, 198)
-                                .addComponent(JDCfecha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
@@ -187,37 +200,64 @@ public class ComprasPorFecha extends javax.swing.JInternalFrame {
 
     private void JBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsalirActionPerformed
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_JBsalirActionPerformed
 
     private void JRBfechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBfechaActionPerformed
         // TODO add your handling code here:
+        JRBcodigo.setEnabled(false);
+        JRBdosfechas.setEnabled(false);
     }//GEN-LAST:event_JRBfechaActionPerformed
 
     private void JRBdosfechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBdosfechasActionPerformed
         // TODO add your handling code here:
+        JRBcodigo.setEnabled(false);
+        JRBfecha.setEnabled(false);
     }//GEN-LAST:event_JRBdosfechasActionPerformed
 
     private void JTcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTcodigoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_JTcodigoActionPerformed
 
     private void JBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBbuscarActionPerformed
         // TODO add your handling code here:
         borrarFilaTabla();
-//        Integer codigo=Integer.parseInt(JTcodigo.getText());
-//        listaDC = (ArrayList) dcompraData.obtenerProductoPorCodigo(codigo);
-//        for(DetalleCompra dc: listaDC){
-//            modelo.addRow(new Object[]{dc.getProducto().getIdProducto(),dc.getProducto().getNombreProducto(), dc.getProducto().getDescripcion()});
-//        }
-        java.util.Date sfecha=JDCfecha1.getDate();
+        if (JRBcodigo.isSelected()){
+            borrarFilaTabla();
+        Integer codigo=Integer.parseInt(JTcodigo.getText());
+        listaDC = (ArrayList) dcompraData.obtenerProductoPorCodigo(codigo);
+        for(DetalleCompra dc: listaDC){
+            modelo.addRow(new Object[]{dc.getProducto().getIdProducto(),dc.getProducto().getNombreProducto(), dc.getProducto().getDescripcion()});
+        }
+        }else if(JRBfecha.isSelected()){
+            borrarFilaTabla();
+        java.util.Date sfecha=JDCporfecha.getDate();
         LocalDate fecha=sfecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        listaC = (ArrayList) compraData.obtenerProductosPorProeveedor(fecha);
-        for (Compras c : listaC) {
-         modelo.addRow(new Object[]{c.getFecha_compra(),c.getIdCompra(),c.getProveedor().getIdProveedor()});
+        listaDC = (ArrayList) dcompraData.obtenerProductosPorFecha(fecha);
+        for (DetalleCompra c : listaDC) {
+         modelo.addRow(new Object[]{c.getProducto().getIdProducto(),c.getProducto().getNombreProducto(),c.getProducto().getDescripcion()});
   
 }
+        }else if(JRBdosfechas.isSelected()){
+            borrarFilaTabla();
+        java.util.Date sfecha=JDCfecha1.getDate();
+        java.util.Date sfecha2=JDCfecha2.getDate();
+        LocalDate fecha1=sfecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate fecha2=sfecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        listaDC = (ArrayList) dcompraData.obtenerProductosEntreFechas(fecha1, fecha2);
+        for (DetalleCompra c : listaDC) {
+         modelo.addRow(new Object[]{c.getProducto().getIdProducto(),c.getProducto().getNombreProducto(),c.getProducto().getDescripcion()});
+        }
+        }
 
     }//GEN-LAST:event_JBbuscarActionPerformed
+
+    private void JRBcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBcodigoActionPerformed
+        // TODO add your handling code here:
+        JRBfecha.setEnabled(false);
+        JRBdosfechas.setEnabled(false);
+    }//GEN-LAST:event_JRBcodigoActionPerformed
     private void armarCabeceraTabla(){
       ArrayList<Object> filaCabecera = new ArrayList<>();
       

@@ -105,17 +105,17 @@ public class ComprasData {
                 JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A COMPRAS");
                 }
         return comprasprov;
-        
-        
     }
-    public List<Compras> obtenerProductosPorProeveedor(LocalDate fecha_compra){
+   
+     public List<Compras> obtenerProductosPorProeveedorEntreFechas(LocalDate fecha_compra1, LocalDate fecha_compra2){
         
         ArrayList<Compras> compras=new ArrayList<>();
         
-        String sql ="SELECT compras.idCompra, producto.nombreProducto, producto.descripcion FROM compras INNER JOIN detallecompra ON compras.idCompra= detallecompra.idCompra INNER JOIN producto ON detallecompra.idProducto WHERE compras.fecha_compra = ?";
+        String sql ="SELECT compras.idCompra, producto.nombreProducto, producto.descripcion FROM compras INNER JOIN detallecompra ON compras.idCompra = detallecompra.idCompra INNER JOIN producto ON detallecompra.idProducto = producto.idProducto WHERE compras.fecha_compra BETWEEN ? AND ?";
             try {
             PreparedStatement ps=con.prepareStatement(sql);
-            ps.setDate(1, java.sql.Date.valueOf(fecha_compra));
+            ps.setDate(1, java.sql.Date.valueOf(fecha_compra1));
+            ps.setDate(1, java.sql.Date.valueOf(fecha_compra2));
             ResultSet rs=ps.executeQuery();
             while (rs.next()){
                 

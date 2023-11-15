@@ -124,5 +124,80 @@ public void registrardetalleDeCompra(DetalleCompra detallecompra){
                 }
         return detalles;   
 }
+     public List<DetalleCompra> obtenerProductosPorFecha(LocalDate fecha_compra) {
+    ArrayList<DetalleCompra> detallesCompra = new ArrayList<>();
+
+    String sql = "SELECT dc.idCompra, dc.idProducto, p.nombreProducto, p.descripcion " +
+                 "FROM detallecompra dc " +
+                 "INNER JOIN producto p ON dc.idProducto = p.idProducto " +
+                 "INNER JOIN compras c ON dc.idCompra = c.idCompra " +
+                 "WHERE c.fecha_compra = ?";
+    
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setDate(1, java.sql.Date.valueOf(fecha_compra));
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            DetalleCompra detalleCompra = new DetalleCompra();
+            Compras compra = new Compras();
+            Producto prod = new Producto();
+
+            compra.setIdCompra(rs.getInt("idCompra"));
+            prod.setIdProducto(rs.getInt("idProducto"));
+            prod.setNombreProducto(rs.getString("nombreProducto"));
+            prod.setDescripcion(rs.getString("descripcion"));
+
+            detalleCompra.setCompras(compra);
+            detalleCompra.setProducto(prod);
+
+            detallesCompra.add(detalleCompra);
+        }
+        
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA DETALLECOMPRA");
+    }
+
+    return detallesCompra;
+}
+          public List<DetalleCompra> obtenerProductosEntreFechas(LocalDate fecha_compra1, LocalDate fecha_compra2) {
+    ArrayList<DetalleCompra> detallesCompra = new ArrayList<>();
+
+    String sql = "SELECT dc.idCompra, dc.idProducto, p.nombreProducto, p.descripcion " +
+                 "FROM detallecompra dc " +
+                 "INNER JOIN producto p ON dc.idProducto = p.idProducto " +
+                 "INNER JOIN compras c ON dc.idCompra = c.idCompra " +
+                 "WHERE c.fecha_compra BETWEEN ? AND ?";
+    
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setDate(1, java.sql.Date.valueOf(fecha_compra1));
+         ps.setDate(2, java.sql.Date.valueOf(fecha_compra2));
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            DetalleCompra detalleCompra = new DetalleCompra();
+            Compras compra = new Compras();
+            Producto prod = new Producto();
+
+            compra.setIdCompra(rs.getInt("idCompra"));
+            prod.setIdProducto(rs.getInt("idProducto"));
+            prod.setNombreProducto(rs.getString("nombreProducto"));
+            prod.setDescripcion(rs.getString("descripcion"));
+
+            detalleCompra.setCompras(compra);
+            detalleCompra.setProducto(prod);
+
+            detallesCompra.add(detalleCompra);
+        }
+        
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA DETALLECOMPRA");
+    }
+
+    return detallesCompra;
+}
 }
 
