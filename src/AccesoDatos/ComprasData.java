@@ -89,7 +89,8 @@ public class ComprasData {
             
             Compras comp=new Compras();
             comp.setIdCompra(rs.getInt("idCompra"));
-//            comp.setFecha_compra(rs.getDate("fecha_compra").toLocalDate());
+            comp.setFecha_compra(rs.getDate("fecha_compra").toLocalDate());
+            
             
             Proveedor prov= new Proveedor();
             prov.setIdProveedor(rs.getInt("idProveedor"));

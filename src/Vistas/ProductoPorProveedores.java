@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author elihe
  */
-public class ProveedoresPorProductos extends javax.swing.JInternalFrame {
+public class ProductoPorProveedores extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo;
     private List<Proveedor> listaProv;
     private List<Compras> listaComp;
@@ -37,7 +37,7 @@ public class ProveedoresPorProductos extends javax.swing.JInternalFrame {
     /**
      * Creates new form ComprasPorProveedor
      */
-    public ProveedoresPorProductos() {
+    public ProductoPorProveedores() {
         initComponents();
         modelo = new DefaultTableModel();
         armarCabeceraTabla();

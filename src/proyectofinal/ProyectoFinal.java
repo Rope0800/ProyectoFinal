@@ -39,12 +39,13 @@ public class ProyectoFinal {
 //          for(DetalleCompra detallecompra: insc.obtenerProductosPorFecha(fechaPrueba)){
 //            System.out.println(detallecompra.getProducto().getNombreProducto());
 //    }
-           DetalleCompraData insc = new DetalleCompraData();
-        LocalDate fechaPrueba = LocalDate.of(2023, 11, 2);
-        LocalDate fechaPrueba2= LocalDate.of(2023, 11, 11);
-        
-          for(DetalleCompra detallecompra: insc.obtenerProductosEntreFechas(fechaPrueba, fechaPrueba2)){
-            System.out.println(detallecompra.getProducto().getNombreProducto());
-    }
-    
-}}
+//           DetalleCompraData insc = new DetalleCompraData();
+//        LocalDate fechaPrueba = LocalDate.of(2023, 11, 2);
+//        LocalDate fechaPrueba2= LocalDate.of(2023, 11, 11);
+//        
+//          for(DetalleCompra detallecompra: insc.obtenerProductosEntreFechas(fechaPrueba, fechaPrueba2)){
+//            System.out.println(detallecompra.getProducto().getNombreProducto());
+//    }
+//    
+//}}
+    }};

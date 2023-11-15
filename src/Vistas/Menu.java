@@ -222,7 +222,7 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
-        ProveedoresPorProductos proxprod = new ProveedoresPorProductos();
+        ProductoPorProveedores proxprod = new ProductoPorProveedores();
         proxprod.setVisible(true);
         proxprod.getContentPane().setBackground(new Color(68, 167, 132));
         escritorio.add(proxprod);
