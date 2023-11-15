@@ -2,6 +2,7 @@
 package Entidades;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 public class Compras {
@@ -9,6 +10,7 @@ public class Compras {
     private int idCompra;
     private Proveedor proveedor;
     private LocalDate fecha_compra;
+    
 
     public Compras() {
     }
@@ -53,9 +55,7 @@ public class Compras {
         return "compras{" + "idCompra=" + idCompra + ", proveedor=" + proveedor + ", fecha_compra=" + fecha_compra + '}';
     }
 
-    public void getIdCompra(Integer codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
     
    

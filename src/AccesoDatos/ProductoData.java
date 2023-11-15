@@ -132,4 +132,50 @@ public class ProductoData {
         }
         return productos;
  }
+  public List<Producto> listarProductosEnStock(){
+     String sql="SELECT nombreProducto, descripcion, precioActual, stock FROM producto WHERE stock > 1";
+     ArrayList<Producto> productos=new ArrayList<>();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                Producto producto=new Producto();
+               
+               producto.setNombreProducto(rs.getString("nombreProducto"));
+               producto.setDescripcion(rs.getString("descripcion"));
+               producto.setPrecioActual(rs.getInt("precioActual"));
+               producto.setStock(rs.getInt("stock"));
+               
+               productos.add(producto);
+            
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR al listar Productos en Stock");
+        }
+        return productos;
+ }
+  public List<Producto> listarProductosSinStock(){
+     String sql="SELECT nombreProducto, descripcion, precioActual, stock FROM producto WHERE stock < 1";
+     ArrayList<Producto> productos=new ArrayList<>();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                Producto producto=new Producto();
+              
+               producto.setNombreProducto(rs.getString("nombreProducto"));
+               producto.setDescripcion(rs.getString("descripcion"));
+               producto.setPrecioActual(rs.getInt("precioActual"));
+               producto.setStock(rs.getInt("stock"));
+               
+               productos.add(producto);
+            
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR al listar Productos sin Stock");
+        }
+        return productos;
+ }
 }

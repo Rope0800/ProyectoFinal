@@ -53,7 +53,7 @@ public void registrardetalleDeCompra(DetalleCompra detallecompra){
         
         ArrayList<DetalleCompra> detalles=new ArrayList<>();
         
-        String sql="SELECT producto.idProducto, producto.nombreProducto, cantidad, precioCosto FROM detallecompra JOIN producto ON (detallecompra.idProducto = producto.idProducto) WHERE idCompra = 1;";
+        String sql="SELECT  producto.idProducto, producto.nombreProducto, producto.descripcion FROM detallecompra JOIN producto ON (detallecompra.idProducto = producto.idProducto) WHERE idCompra = ?;";
         
         try{
         PreparedStatement ps=con.prepareStatement(sql);
@@ -62,21 +62,56 @@ public void registrardetalleDeCompra(DetalleCompra detallecompra){
         
         while(rs.next()){
             
-            DetalleCompra dcompra = new DetalleCompra();
+            DetalleCompra dcompra= new DetalleCompra();
+            Compras cmp= new Compras();
+           
             
-            dcompra.setCantidad(rs.getInt("cantidad"));
-            dcompra.setPrecioCostos(rs.getInt("precioCosto"));
-            
+                    
                         
             Producto prod= new Producto();
             prod.setIdProducto(rs.getInt("idProducto"));
             prod.setNombreProducto(rs.getString("nombreProducto"));
+            prod.setDescripcion(rs.getString("descripcion"));
             dcompra.setProducto(prod);
             
-            Compras com=new Compras();
-            com.setIdCompra(rs.getInt("idCompra"));
-            dcompra.setCompras(com);
-                  
+                    
+            
+            detalles.add(dcompra);
+            
+        }
+        ps.close();
+        
+        
+        }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA DETALLECOMPRA");
+                }
+        return detalles;   
+}
+  public List<DetalleCompra> obtenerProveedorPorProducto(int idProducto){
+        
+        ArrayList<DetalleCompra> detalles=new ArrayList<>();
+        
+        String sql="SELECT proveedor.idProveedor, proveedor.razonSocial, proveedor.domicilio FROM detallecompra INNER JOIN compras ON detallecompra.idCompra= compras.idCompra INNER JOIN proveedor ON compras.idproveedor WHERE detallecompra.idProducto = ?";
+        
+        try{
+        PreparedStatement ps=con.prepareStatement(sql);
+         ps.setInt(1, idProducto);
+        ResultSet rs=ps.executeQuery();
+        
+        while(rs.next()){
+            
+            DetalleCompra dcompra= new DetalleCompra();
+            Compras cmp= new Compras();
+             
+            Proveedor prov= new Proveedor();
+            prov.setIdProveedor(rs.getInt("idProveedor"));
+            prov.setRazonSocial(rs.getString("razonsocial"));
+            prov.setDomicilio(rs.getString("Domicilio"));
+            
+            cmp.setProveedor(prov);
+            dcompra.setCompras(cmp);
+            
+                    
             
             detalles.add(dcompra);
             

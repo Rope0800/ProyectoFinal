@@ -5,17 +5,40 @@
  */
 package Vistas;
 
+import AccesoDatos.ComprasData;
+import Entidades.DetalleCompra;
+import Entidades.Proveedor;
+import AccesoDatos.DetalleCompraData;
+import AccesoDatos.ProveedorData;
+import Entidades.Compras;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author elihe
  */
 public class ComprasPorProveedor extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ComprasPorProveedor
-     */
+     private DefaultTableModel modelo;
+     private List<Proveedor> listaProv;
+     private List<DetalleCompra> listaDC;
+     private List<Compras> listaC;
+     private DetalleCompraData dcompraData;
+     private ComprasData compraData;
+     private ProveedorData provData;
+  
+     
     public ComprasPorProveedor() {
         initComponents();
+        modelo = new DefaultTableModel();
+        provData = new ProveedorData();
+        compraData = new ComprasData();
+        armarCabeceraTabla();
+        listaProv = provData.listarProveedores();
+        cargaProveedores();
+         dcompraData = new DetalleCompraData();
     }
 
     /**
@@ -27,16 +50,21 @@ public class ComprasPorProveedor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        JCBproveedores = new javax.swing.JComboBox<>();
+        JLproveedores = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JTabla = new javax.swing.JTable();
+        JBsalir = new javax.swing.JButton();
 
-        jLabel1.setText("COMPRAS POR PROVEEDOR");
+        JCBproveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBproveedoresActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JLproveedores.setText("PROVEEDORES:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -47,43 +75,93 @@ public class ComprasPorProveedor extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(JTabla);
+
+        JBsalir.setText("Salir");
+        JBsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBsalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(115, 115, 115))
+                .addGap(59, 59, 59)
+                .addComponent(JLproveedores)
+                .addGap(36, 36, 36)
+                .addComponent(JCBproveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JBsalir)
+                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JCBproveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLproveedores))
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(JBsalir)
+                .addGap(47, 47, 47))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_JBsalirActionPerformed
+
+    private void JCBproveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBproveedoresActionPerformed
+        // TODO add your handling code here:
+        borrarFilaTabla();
+       Proveedor selec = (Proveedor)JCBproveedores.getSelectedItem();
+        listaC = (ArrayList) compraData.obtenerComprasPorProveedor(selec.getIdProveedor());
+        for(Compras dc: listaC){
+            modelo.addRow(new Object[]{dc.getFecha_compra(),dc.getIdCompra(), dc.getProveedor().getIdProveedor()});
+        }
+    }//GEN-LAST:event_JCBproveedoresActionPerformed
+private void armarCabeceraTabla(){
+      ArrayList<Object> filaCabecera = new ArrayList<>();
+      filaCabecera.add("FECHA");
+      filaCabecera.add("ID COMPRA");
+      filaCabecera.add("ID PROVEEDOR");
+      for(Object it:filaCabecera){
+          modelo.addColumn(it);
+      }
+      JTabla.setModel(modelo);
+}
+private void cargaProveedores(){
+    for(Proveedor item: listaProv){
+            JCBproveedores.addItem(item);
+        }
+    }
+ private void borrarFilaTabla(){
+     int indice = modelo.getRowCount()-1;
+     
+     for(int i= indice;i>=0;i--){
+         modelo.removeRow(i);
+     }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton JBsalir;
+    private javax.swing.JComboBox<Proveedor> JCBproveedores;
+    private javax.swing.JLabel JLproveedores;
+    private javax.swing.JTable JTabla;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

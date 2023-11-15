@@ -298,15 +298,17 @@ public class FormularioCompras extends javax.swing.JInternalFrame {
 
     private void JBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBguardarActionPerformed
         // TODO add your handling code here:
-      Integer codigo=Integer.parseInt(JTcodigo.getText());
-      Integer cantidad=Integer.parseInt(JTcantidad.getText());
-      Integer precio=Integer.parseInt(JTprecio.getText());
-      Producto selec=(Producto)JCBproductos.getSelectedItem();
-      
-        if(codigo!=1){
-            DetalleCompra cdetalleActual = new DetalleCompra(cantidad,precio,,selec);
-            detalleData.registrardetalleDeCompra(cdetalleActual);
-            
+        int codigo = Integer.parseInt(JTcodigo.getText());
+        int cantidad = Integer.parseInt(JTcantidad.getText());
+        int precio = Integer.parseInt(JTprecio.getText());
+        Producto selec = (Producto) JCBproductos.getSelectedItem();
+          Compras compras = compraData.buscarCompras(codigo);
+
+
+    if (compras != null && compras.getIdCompra()!= 1) {
+        DetalleCompra cdetalleActual = new DetalleCompra(cantidad, precio, compras, selec);
+        detalleData.registrardetalleDeCompra(cdetalleActual);
+              
         }   
     }//GEN-LAST:event_JBguardarActionPerformed
     private void cargaProveedores(){

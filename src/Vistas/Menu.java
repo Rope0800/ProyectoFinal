@@ -39,6 +39,9 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         JMconsultas = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        JMcomprasxprov = new javax.swing.JMenuItem();
+        JMprovporproducto = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         JMsalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,7 +96,36 @@ public class Menu extends javax.swing.JFrame {
         JMconsultas.setText("Consultas");
 
         jMenuItem2.setText("Compras por fecha");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         JMconsultas.add(jMenuItem2);
+
+        JMcomprasxprov.setText("Compras por Proveedor");
+        JMcomprasxprov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMcomprasxprovActionPerformed(evt);
+            }
+        });
+        JMconsultas.add(JMcomprasxprov);
+
+        JMprovporproducto.setText("Proveedores por Producto");
+        JMprovporproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMprovporproductoActionPerformed(evt);
+            }
+        });
+        JMconsultas.add(JMprovporproducto);
+
+        jMenuItem4.setText("Stock");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        JMconsultas.add(jMenuItem4);
 
         jMenuBar1.add(JMconsultas);
 
@@ -156,6 +188,46 @@ public class Menu extends javax.swing.JFrame {
          escritorio.add(compras); 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void JMcomprasxprovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMcomprasxprovActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ComprasPorProveedor compras = new ComprasPorProveedor();
+        compras.setVisible(true);
+        compras.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(compras);
+    }//GEN-LAST:event_JMcomprasxprovActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        Stock stock = new Stock();
+        stock.setVisible(true);
+        stock.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(stock); 
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ComprasPorFecha comporfecha = new ComprasPorFecha();
+        comporfecha.setVisible(true);
+        comporfecha.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(comporfecha); 
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void JMprovporproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMprovporproductoActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ProveedoresPorProductos proxprod = new ProveedoresPorProductos();
+        proxprod.setVisible(true);
+        proxprod.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(proxprod);
+    }//GEN-LAST:event_JMprovporproductoActionPerformed
+
   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -193,13 +265,16 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem JMIproducto;
     private javax.swing.JMenuItem JMIproveedor;
     private javax.swing.JMenu JMcompras;
+    private javax.swing.JMenuItem JMcomprasxprov;
     private javax.swing.JMenu JMconsultas;
     private javax.swing.JMenu JMproducto;
     private javax.swing.JMenu JMproveedores;
+    private javax.swing.JMenuItem JMprovporproducto;
     private javax.swing.JMenu JMsalir;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

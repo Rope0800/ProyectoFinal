@@ -5,17 +5,28 @@
  */
 package Vistas;
 
+import AccesoDatos.ProductoData;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import Entidades.Producto;
+
 /**
  *
  * @author elihe
  */
 public class Stock extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Stock
-     */
+    private DefaultTableModel modelo;
+    private ProductoData prodData;
+    
     public Stock() {
         initComponents();
+        modelo = new DefaultTableModel();
+        armarCabeceraTabla();
+        prodData= new ProductoData();
+        
+                
     }
 
     /**
@@ -27,21 +38,150 @@ public class Stock extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JLstock = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTabla = new javax.swing.JTable();
+        JRBstock = new javax.swing.JRadioButton();
+        JRBsinstock = new javax.swing.JRadioButton();
+        JBsalir = new javax.swing.JButton();
+
+        JLstock.setText("STOCK");
+
+        JTabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(JTabla);
+
+        JRBstock.setText("Productos con stock");
+        JRBstock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBstockActionPerformed(evt);
+            }
+        });
+
+        JRBsinstock.setText("Productos sin stock");
+        JRBsinstock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JRBsinstockActionPerformed(evt);
+            }
+        });
+
+        JBsalir.setText("Salir");
+        JBsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBsalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(JRBstock)
+                        .addGap(78, 78, 78)
+                        .addComponent(JRBsinstock))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(JLstock))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JBsalir)
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JLstock)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JRBstock)
+                    .addComponent(JRBsinstock))
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(JBsalir)
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JRBstockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBstockActionPerformed
+        // TODO add your handling code here:
+        borrarFilaTabla();
+        JRBsinstock.setSelected(false);
+        cargaDatosStock();
+        
+    }//GEN-LAST:event_JRBstockActionPerformed
+
+    private void JRBsinstockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRBsinstockActionPerformed
+        // TODO add your handling code here:
+       borrarFilaTabla();
+        JRBstock.setSelected(false);
+        cargaDatosSinStock(); 
+    }//GEN-LAST:event_JRBsinstockActionPerformed
+
+    private void JBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_JBsalirActionPerformed
+private void armarCabeceraTabla(){
+      ArrayList<Object> filaCabecera = new ArrayList<>();
+      filaCabecera.add("NOMBRE");
+      filaCabecera.add("DESCRIPCION");
+      filaCabecera.add("PRECIO ACTUAL");
+      filaCabecera.add("STOCK");
+      for(Object it:filaCabecera){
+          modelo.addColumn(it);
+      }
+      JTabla.setModel(modelo);
+      
+    }
+private void borrarFilaTabla(){
+     int indice = modelo.getRowCount()-1;
+     
+     for(int i= indice;i>=0;i--){
+         modelo.removeRow(i);
+     }
+}
+private void cargaDatosStock(){
+       
+        List <Producto> listaP = prodData.listarProductosEnStock();
+        for(Producto p: listaP){
+            modelo.addRow(new Object[]{p.getNombreProducto(),p.getDescripcion(),p.getPrecioActual(),p.getStock()});
+        }
+}
+private void cargaDatosSinStock(){
+       
+        List <Producto> listasP = prodData.listarProductosSinStock();
+        for(Producto p: listasP){
+            modelo.addRow(new Object[]{p.getNombreProducto(),p.getDescripcion(),p.getPrecioActual(),p.getStock()});
+        }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBsalir;
+    private javax.swing.JLabel JLstock;
+    private javax.swing.JRadioButton JRBsinstock;
+    private javax.swing.JRadioButton JRBstock;
+    private javax.swing.JTable JTabla;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

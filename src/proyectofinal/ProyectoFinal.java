@@ -3,9 +3,16 @@ package proyectofinal;
 
 import AccesoDatos.ProductoData;
 import AccesoDatos.ProveedorData;
+import AccesoDatos.DetalleCompraData;
+import AccesoDatos.ComprasData;
+import Entidades.Compras;
 import Entidades.Producto;
 import Entidades.Proveedor;
+import Entidades.DetalleCompra;
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.Date;
+
 
 public class ProyectoFinal {
 
@@ -25,6 +32,12 @@ public class ProyectoFinal {
 //        Proveedor prov=new Proveedor(10,"Losada","Pringles 88",265679797);
 //        ProveedorData prove=new ProveedorData();
 //        prove.agregarProveedor(prov);
+        //*COMPRAS¨POR CODIGO*
+        ComprasData insc = new ComprasData();
+        LocalDate fechaPrueba = LocalDate.of(2023, 11, 2);
+        
+          for(Compras detallecompra: insc.obtenerProductosPorProeveedor(fechaPrueba)){
+            System.out.println(detallecompra.getIdCompra());
     }
     
-}
+}}
