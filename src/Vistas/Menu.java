@@ -6,6 +6,10 @@
 package Vistas;
 
 import java.awt.Color;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.awt.Graphics;
 
 /**
  *
@@ -18,6 +22,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setSize(500, 520);
     }
 
     /**
@@ -29,7 +35,13 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        escritorio = new javax.swing.JDesktopPane();
+        ImageIcon icono=new ImageIcon(getClass().getResource("/Recursos/Fondo.jpeg"));
+        Image miImagen=icono.getImage();
+        escritorio = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(miImagen,0,0,getWidth(),getHeight(),this);
+            }
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         JMproducto = new javax.swing.JMenu();
         JMIproducto = new javax.swing.JMenuItem();
