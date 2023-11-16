@@ -19,107 +19,131 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
                       <Component id="JBagregar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="JLfecha" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                              <Component id="jDateCfecha" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="JLdetalle" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLcompras" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="JLprecio" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JLcantidad" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JLproducto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="JLfecha" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JLcodigo" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLprecio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLcantidad" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLproducto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLproveedor" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLproveedor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JLcodigo" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JLdetalle" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="JLcompras" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="JTcantidad" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="JTprecio" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="JCBproductos" pref="165" max="32767" attributes="0"/>
-                                      <Component id="JCBproveedor" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="JTcodigo" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="JBnuevo" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="JBguardar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="101" max="32767" attributes="0"/>
+                      <Component id="JBsalir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="JCBproveedor" min="-2" pref="165" max="-2" attributes="0"/>
+                          <Component id="jDateCfecha" min="-2" pref="152" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="JTcantidad" alignment="0" max="32767" attributes="0"/>
+                              <Component id="JTprecio" alignment="0" max="32767" attributes="0"/>
+                              <Component id="JCBproductos" pref="165" max="32767" attributes="0"/>
+                              <Component id="JTcodigo" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="JBnuevo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-              <Component id="JBguardar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="71" max="32767" attributes="0"/>
-              <Component id="JBsalir" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JLcompras" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="JLcompras" min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JTcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLcodigo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JCBproveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLproveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="JLproveedor" min="-2" max="-2" attributes="0"/>
+                  <Component id="JCBproveedor" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="JLfecha" min="-2" max="-2" attributes="0"/>
                   <Component id="jDateCfecha" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="JBagregar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
               <Component id="JLdetalle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JLcantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTcantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JLprecio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTprecio" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="JCBproductos" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="JLproducto" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JTcantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLcantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JTprecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLprecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JLproducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JCBproductos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace pref="57" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JBnuevo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBguardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JBsalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JBsalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JBguardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JBnuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -128,7 +152,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="JLcompras">
       <Properties>
-        <Property name="text" type="java.lang.String" value="REGISTRAR COMPRAS"/>
+        <Property name="text" type="java.lang.String" value="&#x2666; REGISTRAR COMPRAS &#x2666;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="JBagregar">
@@ -166,17 +190,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="JLproveedor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Proveedor:"/>
+        <Property name="text" type="java.lang.String" value="&#x2666; Proveedor:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="JLfecha">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha:"/>
+        <Property name="text" type="java.lang.String" value="&#x2666; Fecha:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="JLdetalle">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DETALLE DE COMPRA"/>
+        <Property name="text" type="java.lang.String" value="&#x2666; DETALLE DE COMPRA &#x2666;"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -200,12 +224,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="JLcodigo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo de compra:"/>
+        <Property name="text" type="java.lang.String" value="&#x2666; C&#xf3;digo de compra:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="JLcantidad">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cantidad:"/>
+        <Property name="text" type="java.lang.String" value="&#x2666; Cantidad:"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -219,7 +243,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="JLprecio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Precio de costo:"/>
+        <Property name="text" type="java.lang.String" value="&#x2666; Precio de costo:"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -244,7 +268,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="JLproducto">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Producto:"/>
+        <Property name="text" type="java.lang.String" value="&#x2666; Producto:"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
