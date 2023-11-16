@@ -136,6 +136,7 @@ public class ProductoPorProveedores extends javax.swing.JInternalFrame {
         for(DetalleCompra dc: listaDC){
             modelo.addRow(new Object[]{dc.getCompras().getProveedor().getIdProveedor(),dc.getCompras().getProveedor().getRazonSocial(),dc.getCompras().getProveedor().getDomicilio()});
         }
+        
     }//GEN-LAST:event_JCBproductosActionPerformed
 
     private void JBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsalirActionPerformed

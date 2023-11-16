@@ -78,7 +78,7 @@ public class ComprasData {
         
         ArrayList<Compras> comprasprov=new ArrayList<>();
         
-        String sql="SELECT * FROM `compras` WHERE idProveedor = ?";
+        String sql="SELECT idCompra, fecha_compra, idProveedor FROM `compras` WHERE idProveedor = ?";
         
         try{
         PreparedStatement ps=con.prepareStatement(sql);
