@@ -45,7 +45,7 @@ public class Stock extends javax.swing.JInternalFrame {
         JRBsinstock = new javax.swing.JRadioButton();
         JBsalir = new javax.swing.JButton();
 
-        JLstock.setText("STOCK");
+        JLstock.setText("♦ STOCK ♦");
 
         JTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,18 +90,19 @@ public class Stock extends javax.swing.JInternalFrame {
                 .addComponent(JBsalir)
                 .addGap(40, 40, 40))
             .addGroup(layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(JRBstock)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JRBsinstock)
+                .addGap(88, 88, 88))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(JRBstock)
-                        .addGap(78, 78, 78)
-                        .addComponent(JRBsinstock))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(JLstock))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(JLstock)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -115,7 +116,7 @@ public class Stock extends javax.swing.JInternalFrame {
                     .addComponent(JRBsinstock))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(JBsalir)
                 .addGap(33, 33, 33))
         );

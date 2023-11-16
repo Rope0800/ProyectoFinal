@@ -173,7 +173,7 @@ public class Menu extends javax.swing.JFrame {
          escritorio.repaint();
          FormularioProductos producto = new FormularioProductos();
          producto.setVisible(true);
-         producto.getContentPane().setBackground(new Color(68, 167, 132));
+         producto.getContentPane().setBackground(new Color(153, 204, 255));
          escritorio.add(producto);
     }//GEN-LAST:event_JMIproductoActionPerformed
 
@@ -183,7 +183,7 @@ public class Menu extends javax.swing.JFrame {
          escritorio.repaint();
          FormularioProveedor proveedor = new FormularioProveedor();
          proveedor.setVisible(true);
-         proveedor.getContentPane().setBackground(new Color(68, 167, 132));
+         proveedor.getContentPane().setBackground(new Color(153, 204, 255));
          escritorio.add(proveedor);
     }//GEN-LAST:event_JMIproveedorActionPerformed
 
@@ -193,7 +193,7 @@ public class Menu extends javax.swing.JFrame {
          escritorio.repaint();
          FormularioCompras compras = new FormularioCompras();
          compras.setVisible(true);
-         compras.getContentPane().setBackground(new Color(68, 167, 132));
+         compras.getContentPane().setBackground(new Color(153, 204, 255));
          escritorio.add(compras); 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -203,7 +203,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         ComprasPorProveedor compras = new ComprasPorProveedor();
         compras.setVisible(true);
-        compras.getContentPane().setBackground(new Color(68, 167, 132));
+        compras.getContentPane().setBackground(new Color(153, 204, 255));
         escritorio.add(compras);
     }//GEN-LAST:event_JMcomprasxprovActionPerformed
 
@@ -213,7 +213,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         Stock stock = new Stock();
         stock.setVisible(true);
-        stock.getContentPane().setBackground(new Color(68, 167, 132));
+        stock.getContentPane().setBackground(new Color(153, 204, 255));
         escritorio.add(stock); 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
@@ -223,7 +223,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         ComprasPorFecha comporfecha = new ComprasPorFecha();
         comporfecha.setVisible(true);
-        comporfecha.getContentPane().setBackground(new Color(68, 167, 132));
+        comporfecha.getContentPane().setBackground(new Color(153, 204, 255));
         escritorio.add(comporfecha); 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -233,7 +233,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         ProductoPorProveedores proxprod = new ProductoPorProveedores();
         proxprod.setVisible(true);
-        proxprod.getContentPane().setBackground(new Color(68, 167, 132));
+        proxprod.getContentPane().setBackground(new Color(153, 204, 255));
         escritorio.add(proxprod);
     }//GEN-LAST:event_JMprovporproductoActionPerformed
 
