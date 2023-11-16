@@ -198,7 +198,7 @@ public class FormularioCompras extends javax.swing.JInternalFrame {
                 .addComponent(JBnuevo)
                 .addGap(108, 108, 108)
                 .addComponent(JBguardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(JBsalir)
                 .addGap(48, 48, 48))
         );

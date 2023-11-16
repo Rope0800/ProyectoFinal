@@ -54,6 +54,8 @@ public class FormularioProductos extends javax.swing.JInternalFrame {
         JTcodigo = new javax.swing.JTextField();
         JLcodigo = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 204));
+
         JLproducto.setText("PRODUCTO");
 
         JTnombre.addActionListener(new java.awt.event.ActionListener() {

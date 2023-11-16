@@ -23,7 +23,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setSize(500, 520);
+        this.setSize(1000, 1020);
     }
 
     /**
@@ -54,7 +54,6 @@ public class Menu extends javax.swing.JFrame {
         JMcomprasxprov = new javax.swing.JMenuItem();
         JMprovporproducto = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        JMsalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,15 +61,17 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 621, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 291, Short.MAX_VALUE)
+            .addGap(0, 519, Short.MAX_VALUE)
         );
 
+        JMproducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Producto 40x40.png"))); // NOI18N
         JMproducto.setText("Productos");
 
+        JMIproducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Formulario de producto 30x30.png"))); // NOI18N
         JMIproducto.setText("Formulario de Producto");
         JMIproducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,8 +82,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(JMproducto);
 
+        JMproveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Proveedor 40x40.png"))); // NOI18N
         JMproveedores.setText("Proveedores");
 
+        JMIproveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Formulario de Proveedor 30x30.png"))); // NOI18N
         JMIproveedor.setText("Formulario de Proveedor");
         JMIproveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,8 +96,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(JMproveedores);
 
+        JMcompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Compras 40x40.png"))); // NOI18N
         JMcompras.setText("Compras");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Administrar Compra 30x30.png"))); // NOI18N
         jMenuItem1.setText("Administrar compras");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,8 +110,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(JMcompras);
 
+        JMconsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Consulta 40x40.png"))); // NOI18N
         JMconsultas.setText("Consultas");
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Compras por fecha 30x30.png"))); // NOI18N
         jMenuItem2.setText("Compras por fecha");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +122,7 @@ public class Menu extends javax.swing.JFrame {
         });
         JMconsultas.add(jMenuItem2);
 
+        JMcomprasxprov.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Compras por Proveedor 30x30.png"))); // NOI18N
         JMcomprasxprov.setText("Compras por Proveedor");
         JMcomprasxprov.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +131,7 @@ public class Menu extends javax.swing.JFrame {
         });
         JMconsultas.add(JMcomprasxprov);
 
+        JMprovporproducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Proveedor por Producto 30x30.png"))); // NOI18N
         JMprovporproducto.setText("Proveedores por Producto");
         JMprovporproducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +140,7 @@ public class Menu extends javax.swing.JFrame {
         });
         JMconsultas.add(JMprovporproducto);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Stock 30x30.png"))); // NOI18N
         jMenuItem4.setText("Stock");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,14 +150,6 @@ public class Menu extends javax.swing.JFrame {
         JMconsultas.add(jMenuItem4);
 
         jMenuBar1.add(JMconsultas);
-
-        JMsalir.setText("Salir");
-        JMsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMsalirActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(JMsalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -174,11 +176,6 @@ public class Menu extends javax.swing.JFrame {
          producto.getContentPane().setBackground(new Color(68, 167, 132));
          escritorio.add(producto);
     }//GEN-LAST:event_JMIproductoActionPerformed
-
-    private void JMsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMsalirActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_JMsalirActionPerformed
 
     private void JMIproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIproveedorActionPerformed
         // TODO add your handling code here:
@@ -282,7 +279,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu JMproducto;
     private javax.swing.JMenu JMproveedores;
     private javax.swing.JMenuItem JMprovporproducto;
-    private javax.swing.JMenu JMsalir;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
